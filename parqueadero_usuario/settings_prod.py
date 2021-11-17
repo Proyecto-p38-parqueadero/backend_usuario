@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6-8*3ao@yv!4le9!x*4gek#bmz(o5i5p5tfe=_q!cp4@u4hv(r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ ' localhost ' ]
 
 
 # Application definition
@@ -46,7 +46,7 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=20),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "ROTATE_REFRESH_TOKENS": False,
-    "BLACKLIST_AFTER_ROTATION": True,
+    "BLACKLIST_AFTER_ROTATION": False,
     "UPDATE_LAST_LOGIN": False,
     "ALGORITHM": "HS256",
     "USER_ID_FIELD": "id",
@@ -69,6 +69,7 @@ REST_FRAMEWORK = {
 
 }
 
+AUTH_USER_MODEL = 'usuario.User'
 ROOT_URLCONF = 'parqueadero_usuario.urls'
 
 TEMPLATES = [
@@ -95,8 +96,12 @@ WSGI_APPLICATION = 'parqueadero_usuario.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dpk5joiutgmrj',
+        'USER': 'djoepuycekxdot',
+        'PASSWORD': '94687679b0684690df9059b7e3076f63137c0b80102b54f95498064402b8315c',
+        'HOST': 'ec2-34-203-114-67.compute-1.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
