@@ -16,3 +16,5 @@ class UserCreateView(views.APIView):
         token_serializer = TokenObtainPairSerializer(data=token_data)
         token_serializer.is_valid(raise_exception=True)
         return Response(token_serializer.validated_data, status=status.HTTP_201_CREATED)
+
+        
